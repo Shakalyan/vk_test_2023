@@ -1,4 +1,4 @@
-package com.shakalyan.vk_test_2023.config;
+package com.shakalyan.vk_test_2023.security;
 
 import com.shakalyan.vk_test_2023.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,23 +27,20 @@ public class WebConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/login/**").permitAll()
-                .requestMatchers("/swagger-ui.html").hasRole("DEV")
-                .requestMatchers("/swagger-ui/**").hasRole("DEV")
-                .requestMatchers("/v3/api-docs/**").hasRole("DEV")
-                .requestMatchers("/auth/registration/**").hasRole("ADMIN")
-                .requestMatchers("/style/**").permitAll()
-                .requestMatchers("/scripts/**").permitAll()
+                .requestMatchers("/login/**").permitAll()
+//                .requestMatchers("/encode/**").permitAll()
+//                .requestMatchers("/style/**").permitAll()
+//                .requestMatchers("/scripts/**").permitAll()
                 .anyRequest().authenticated()
-                .and()
+            .and()
                 .formLogin()
-                .loginPage("/auth/login")
+//                .loginPage("/login")
                 .defaultSuccessUrl("/")
                 .permitAll()
-                .and()
+            .and()
                 .logout()
-                .logoutUrl("/auth/logout")
-                .logoutSuccessUrl("/auth/login?logout")
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
                 .invalidateHttpSession(true);
         return http.build();
     }
