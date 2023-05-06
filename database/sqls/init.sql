@@ -7,6 +7,19 @@
 -- 	full_name VARCHAR(255) NOT NULL
 -- );
 
+-- CREATE TABLE roles(
+-- 	id SERIAL PRIMARY KEY,
+-- 	name VARCHAR(255) UNIQUE NOT NULL
+-- );
+
+-- CREATE TABLE roles_mapping(
+-- 	employee_id UUID,
+-- 	role_id INT,
+-- 	PRIMARY KEY (employee_id, role_id),
+-- 	FOREIGN KEY (employee_id) REFERENCES employees(id),
+-- 	FOREIGN KEY (role_id) REFERENCES roles(id)
+-- );
+
 -- CREATE TABLE categories(
 -- 	id SERIAL PRIMARY KEY,
 -- 	name VARCHAR(255) UNIQUE NOT NULL
@@ -43,6 +56,28 @@
 -- (uuid_generate_v4(), 'hohlov_vm', '$2a$10$CRdusukmbPe/5QUlJy3wmO3C0VuU7.NujstpTg3EAQ6CDq4CCMG.2', 'Хохлов Владимир Макарович'),
 -- (uuid_generate_v4(), 'filimonova_yaf', '$2a$10$d383MPUukyTRYqYxCXXn.OzshLYxYGkNOYwxQpKM8AF1Pg85uhFzW', 'Филимонова Ясмина Фёдоровна'),
 -- (uuid_generate_v4(), 'vereschagina_ld', '$2a$10$oFhxkDbmxwCkwU/mAyTMmesuPUuxmyg8/YmgZm6.lyVtEo6c02s.i', 'Верещагина Лидия Демидовна')
+-- (uuid_generate_v4(), 'admin', '$2a$10$6d9IcdCzUVXlx90RhtWmOupKkRhn2NxW5CYhG9/4mNltVMPEppl92', 'Админ');
+
+-- INSERT INTO roles (name) VALUES
+-- ('ROLE_USER'),
+-- ('ROLE_ADMIN');
+
+-- DO
+-- $$
+-- DECLARE
+-- 	tmp RECORD;
+-- BEGIN
+-- 	FOR tmp IN SELECT * FROM employees 
+-- 	LOOP
+-- 		INSERT INTO roles_mapping (employee_id, role_id) VALUES
+-- 		(tmp.id, (SELECT id FROM roles WHERE name = 'ROLE_USER'));
+-- 	END LOOP;
+-- END;
+-- $$
+
+-- INSERT INTO roles_mapping(employee_id, role_id) VALUES
+-- ((SELECT id FROM employees WHERE username = 'admin'), (SELECT id FROM roles WHERE name = 'ROLE_USER')),
+-- ((SELECT id FROM employees WHERE username = 'admin'), (SELECT id FROM roles WHERE name = 'ROLE_ADMIN'))
 
 -- INSERT INTO categories (name) VALUES
 -- ('Fishing'),
@@ -92,7 +127,6 @@
 -- DROP TABLE tasks;
 -- DROP TABLE categories;
 -- DROP TABLE employees;
-
 
 
 

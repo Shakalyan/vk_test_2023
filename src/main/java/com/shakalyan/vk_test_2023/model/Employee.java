@@ -1,25 +1,26 @@
 package com.shakalyan.vk_test_2023.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "employees")
 public class Employee implements UserDetails {
 
     @Id
@@ -31,9 +32,19 @@ public class Employee implements UserDetails {
 
     String fullName;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "roles_mapping",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    Collection<Role> roles;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        roles.forEach((role) -> authorities.add(new SimpleGrantedAuthority(role.getName())));
+        return authorities;
     }
 
     @Override

@@ -28,7 +28,7 @@ public class WebConfig {
         http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/login/**").permitAll()
-//                .requestMatchers("/encode/**").permitAll()
+                .requestMatchers("/encode/**").hasRole("ADMIN")
 //                .requestMatchers("/style/**").permitAll()
 //                .requestMatchers("/scripts/**").permitAll()
                 .anyRequest().authenticated()
