@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class WebConfig {
+public class WebSecurityConfig {
 
     private final EmployeeRepository employeeRepository;
 
@@ -35,7 +35,7 @@ public class WebConfig {
             .and()
                 .formLogin()
 //                .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/scoreboard")
                 .permitAll()
             .and()
                 .logout()
