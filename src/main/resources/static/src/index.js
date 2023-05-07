@@ -5,7 +5,7 @@ import css from "./css/scoreboard.css"
 export default function App() {
 
     return (
-        <h1 className={css.test}>TEST TEST TEST</h1>
+        <h1 className={css.MainContainer}>TEST TEST</h1>
     );
 
 }
