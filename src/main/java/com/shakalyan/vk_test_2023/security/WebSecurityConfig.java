@@ -29,6 +29,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/login/**").permitAll()
                 .requestMatchers("/encode/**").hasRole("ADMIN")
+                .requestMatchers("/test/**").permitAll()
 //                .requestMatchers("/style/**").permitAll()
 //                .requestMatchers("/scripts/**").permitAll()
                 .anyRequest().authenticated()

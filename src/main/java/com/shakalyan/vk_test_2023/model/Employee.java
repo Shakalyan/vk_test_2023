@@ -40,6 +40,14 @@ public class Employee implements UserDetails {
     )
     Collection<Role> roles;
 
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "tasks_completions",
+//            joinColumns = @JoinColumn(name = "employee_id"),
+//            inverseJoinColumns = @JoinColumn(name = "task_id")
+//    )
+//    List<Task> completedTasks;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
