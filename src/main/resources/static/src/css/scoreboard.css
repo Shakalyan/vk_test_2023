@@ -1,3 +1,42 @@
-.MainContainer {
-    background: aqua;
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+body {
+    margin: 0;
+    font-family: "Inter";
 }
+
+.pageWidth {
+    width: 60%;
+}
+
+#MainContainer {
+    margin: auto;
+}
+
+#Header {
+    background: #1976d2;
+    height: 50px;
+    width: 100%;
+}
+
+.textDefaults {
+    font-size: 16px;
+    color: white;
+}
+
+#LoginText {
+    font-size: 26px;
+    margin: auto 15px;
+    display: inline-block;
+    height: 100%;
+    vertical-align: center;
+}
+
+#Footer {
+    position: absolute;
+    bottom: 15px;
+    /*background: aqua;*/
+    height: 100px;
+    text-align: center;
+}
+

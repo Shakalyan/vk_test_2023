@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import css from "./css/scoreboard.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function App() {
+import MainContainer from './components/MainContainer.jsx'
+import {store} from './store/store.jsx'
+import {Provider} from "react-redux";
+
+function App() {
 
     return (
-        <h1 className={css.MainContainer}>TEST TEST</h1>
+        <MainContainer />
     );
 
 }
 
-ReactDom.render(<App />, document.querySelector("#react"));
+console.log()
+
+const root = ReactDom.createRoot(document.querySelector("#react"));
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+);

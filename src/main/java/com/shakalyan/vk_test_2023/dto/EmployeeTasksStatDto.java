@@ -12,12 +12,14 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EmployeeTasksStatDto {
 
-    Integer categoryId;
+    String categoryName;
 
     Integer completedTasksCount;
 
     Integer totalTasksCount;
 
     Integer place;
+
+    Integer totalParticipantsCount;
 
 }

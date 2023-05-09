@@ -102,8 +102,8 @@
 -- (uuid_generate_v4(), 'Smishing5', 3, 'text-site/smishing/5');
 
 -- INSERT INTO tasks_completions(employee_id, task_id) VALUES
---((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Fishing1')),
---((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Fishing2'))
+-- ((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Fishing1')),
+-- ((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Fishing2')),
 -- ((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Vishing1')),
 -- ((SELECT id FROM employees WHERE username = 'volkov_am'), (SELECT id FROM tasks WHERE name = 'Smishing1')),
 
@@ -128,8 +128,10 @@
 -- DROP TABLE categories;
 -- DROP TABLE employees;
 
-
-
-
-
+-- SELECT employee_id as employeeId, COUNT(*) as count
+-- FROM tasks_completions
+-- JOIN tasks on tasks.id = tasks_completions.task_id
+-- WHERE category_id = 3
+-- GROUP BY employee_id
+-- ORDER BY count DESC;
 
