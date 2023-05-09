@@ -18,12 +18,12 @@ export default function Footer() {
                             <p>VK: @awes0meballs</p>
                         </Col>
                         <Col>
-                            <p>email: vdovit@mail.ru</p>
+                            <p>Email: vdovit@mail.ru</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <p>© 2023 Copyright: shakalyan.com</p>
+                            <p>© 2023 Copyright: shakalyan.ru</p>
                         </Col>
                     </Row>
                 </Container>
