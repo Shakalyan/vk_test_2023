@@ -15,15 +15,14 @@ export default function Footer() {
                             <p>Telegram: @nua4e</p>
                         </Col>
                         <Col>
-                            <p>VK: @awes0meballs</p>
-                        </Col>
-                        <Col>
                             <p>Email: vdovit@mail.ru</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <p>© 2023 Copyright: shakalyan.ru</p>
+                            <a href="https://github.com/Shakalyan/vk_test_2023"
+                               target="_blank"
+                               rel="noopener noreferrer">Репозиторий проекта</a>
                         </Col>
                     </Row>
                 </Container>

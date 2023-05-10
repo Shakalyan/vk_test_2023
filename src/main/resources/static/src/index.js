@@ -14,8 +14,6 @@ function App() {
 
 }
 
-console.log()
-
 const root = ReactDom.createRoot(document.querySelector("#react"));
 root.render(
     <Provider store={store}>

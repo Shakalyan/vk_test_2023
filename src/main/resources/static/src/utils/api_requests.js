@@ -1,5 +1,5 @@
 const API_URLS = {
-    backendURL: "http://localhost:8080"
+    backendURL: "http://88.210.3.145:80"
 }
 
 function sendQuery(url, method) {
