@@ -33,5 +33,4 @@ build/
 .vscode/
 
 /src/main/resources/static/node_modules
-/.mvn
 /src/main/java/com/shakalyan/vk_test_2023/controller/TestController.java
